@@ -1,5 +1,7 @@
 from typing import List
 
+from utils.utils import pretty_print_matrix
+
 # For this problem, first we can utilize a dictionary to store the values that we have moved
 # As we move the values around. However this will require O(n) space
 # Can we do this in place? If we attempt to move this in place step by step, we can see that
@@ -13,7 +15,7 @@ from typing import List
 
 def rotate_matrix(matrix: List[List[int]]) -> List[List[int]]:
     print("before")
-    pretty_print(matrix)
+    pretty_print_matrix(matrix)
     # First we find the length n of the matrix
     n = len(matrix)
     # If we pretend the matrix is a set of layers, we can rotate each layer
@@ -32,12 +34,8 @@ def rotate_matrix(matrix: List[List[int]]) -> List[List[int]]:
             matrix[i][last] = top
 
     print("after")
-    pretty_print(matrix)
+    pretty_print_matrix(matrix)
     
-
-def pretty_print(matrix: List[List[int]]) -> None:
-    for row in matrix:
-        print(row)
 
 
 if __name__ == '__main__':
